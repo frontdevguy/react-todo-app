@@ -1,14 +1,215 @@
-body {
+* {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: 'Poppins';
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.container {
+  display: block;
+  width: 100%;
+  margin: 20px auto;
+  max-width: 1200px;
+  padding: 0px 30px;
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
+.app-title {
+  color: rgb(133, 126, 126);
+  margin-bottom: 10px;
+  font-family: 'Poppins';
+}
+
+.add-todo-container{
+  width: 310px;
+  max-width: 95%;
+  padding: 10px;
+  background: rgba(241, 243, 244,0.5);
+  border: 1px solid rgba(0,0,0,0.2);
+  float: left;
+}
+
+.add-todo-container .title {
+  text-align: left;
+  color: rgb(133, 126, 126);
+  margin-top: 2px;
+  font-size: 17px;
+  font-family: 'Poppins';
+  margin-bottom: 10px;
+}
+
+.add-todo-title {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  outline: none;
+  font-size: 13px;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.add-todo-description {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  max-height: 55px;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.add-todo-button{
+  display: block;
+  width: 100%;
+  background: rgb(72, 164, 226);
+  color: white;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  outline: none;
+  padding: 8px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-family: 'Poppins'
+}
+
+.todos-container {
+  width: 350px;
+  max-width: 95%;
+  padding: 10px;
+  background: rgba(241, 243, 244,0.5);
+  border: 1px solid rgba(0,0,0,0.25);
+  float: left;
+  padding-bottom: 20px;
+  max-height: 70vh;
+  overflow-y: scroll;
+  margin-left: 20px;
+}
+
+.todos-container::-webkit-scrollbar {
+  width: 15px;
+}
+
+.todos-container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey; 
+}
+
+.todos-container::-webkit-scrollbar-thumb {
+  background: rgba(34, 34, 34,0.6); 
+}
+
+.todos-container .title {
+  text-align: center;
+  color: rgb(134, 128, 128);
+  margin-top: 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.todo {
+  margin-top: 25px;
+  position: relative;
+  cursor: pointer;
+}
+
+.todo .badge {
+  color: white;
+  font-size: 10px;
+  padding: 3px 10px;
+  padding-top: 3px;
+  border-radius: 10px;
+  margin-bottom: 3px;
+  display: inline-block;
+}
+
+.todo .badge.pending {
+  background: rgb(251, 120, 33);
+}
+
+.todo .badge.completed {
+  background: mediumseagreen;
+}
+
+.todo-item {
+  list-style: none;
+  display: block;
+  background: rgba(34, 34, 34,0.55);
+  color: white;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  padding: 5px 15px;
+  border-left: 3px solid rgba(34, 34, 34,0.3);
+  border-right: 3px solid rgba(34, 34, 34,0.3)
+}
+
+.todo-item .todo-title {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 17px;
+  word-break: break-all;
+  font-family: 'Poppins';
+  font-style: italic;
+}
+
+.todo .mark-todo-as-complete {
+  position: absolute;
+  right: 30px;
+  top: 4px;
+  background: mediumseagreen;
+  color: white;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.todo .mark-todo-as-complete i {
+  font-size: 13px;
+}
+
+.todo .remove-todo {
+  position: absolute;
+  right: 5px;
+  top: 4px;
+  background: rgb(243, 43, 17);
+  color: white;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+
+.todo .remove-todo i {
+  font-size: 12px;
+}
+
+
+@media screen and ( max-width: 500px ) {
+  .add-todo-container, .todos-container{
+    float: none;
+    margin: 0 auto;
+  }
+
+  .todos-container{
+    margin-top: 30px;
+    max-height: 55vh;
+  }
+
+  .app-title { 
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
 }
